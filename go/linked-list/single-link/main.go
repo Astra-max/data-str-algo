@@ -11,7 +11,7 @@ func main() {
 	list.AddNode(56)
 	list.AddNode(12)
 	list.AddNode(9)
-	fmt.Println(list.Delete())
-	fmt.Println(list.Insert(1, 89))
+	//fmt.Println(list.Delete())
+	fmt.Println(list.Insert(3, 89))
 	list.Print()
 }
