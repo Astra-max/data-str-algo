@@ -36,5 +36,25 @@ func (l *List) Print() {
 		fmt.Printf("[%d] ->", curr.data)
 		curr = curr.next
 	}
-	fmt.Println()
+	fmt.Println("nil")
 }
+
+func (l *List) isEmpty() bool {
+	return l.head == nil
+}
+
+func (l *List) Delete() bool {
+	dummy := &Node{data: 0, nil}
+	if l.head == nil {
+		return true
+	}
+
+	if l.head.next == z
+
+	if l.head.next != nil {
+		l.head = l.head.next
+		return true
+	}
+	return false
+}
+
