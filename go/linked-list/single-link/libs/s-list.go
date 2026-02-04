@@ -44,12 +44,15 @@ func (l *List) isEmpty() bool {
 }
 
 func (l *List) Delete() bool {
-	dummy := &Node{data: 0, nil}
+	dummy := &Node{data: 0, next: nil}
 	if l.head == nil {
 		return false
 	}
 
 	if l.head.next == nil {
+		if l.head.data == 0 {
+			return false
+		}
 		l.head = dummy
 		return true
 	}
