@@ -61,17 +61,36 @@ func (l *List) Delete() bool {
 	return true
 }
 
-
 func (l *List) Insert(pstn int, data interface{}) bool {
 	size := l.Len()
+	newNode := &Node{data, nil}
+	curr := l.head
 
 	if pstn > size {
 		return false
-	} else if pstn == 1 {
+	} else if pstn == 0 {
 		l.AddNode(data)
 		return true
+	} else if pstn == size {
+		for curr.next != nil {
+			curr = curr.next
+		}
+		curr.next = newNode
+		return true
+	} else {
+		for curr != nil {
+			next := curr.next
+
+			if pstn-1 == size {
+				curr.next = newNode
+				newNode.next = next
+				return true
+			}
+			curr = curr.next
+			size--
+		}
 	}
-	return true
+	return false
 }
 
 func (l *List) Len() int {
