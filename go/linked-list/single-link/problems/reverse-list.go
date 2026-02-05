@@ -10,6 +10,10 @@ func Reverse(l *libs.List) {
 	prev := new(libs.Node)
 	curr := l.Head
 
+	if curr == nil {
+		return
+	}
+
 	for curr != nil {
 		next := curr.Next
 		curr.Next = prev
