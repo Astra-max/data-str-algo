@@ -51,8 +51,13 @@ func (s *Stack) Peek() (interface{}, error) {
 func (s *Stack) Print() {
 	curr := s.top
 
+	if s.IsEmpty() {
+		fmt.Println("Empty stack")
+		return
+	}
+
 	for curr != nil {
-		fmt.Printf("[ %d  ]-> ", s.top.data)
+		fmt.Printf("[ %d  ]-> ", curr.data)
 		curr = curr.next
 	}
 	fmt.Println("nil")
