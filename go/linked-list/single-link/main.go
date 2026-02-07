@@ -4,7 +4,7 @@ package main
 import (
 	"fmt"
 	"single-link/libs"
-	"single-link/problems"
+	//"single-link/problems"
 )
 
 func main() {
@@ -12,7 +12,7 @@ func main() {
 	list.AddNode(56)
 	list.AddNode(12)
 	list.AddNode(9)
-	problems.Reverse(list)
+	//problems.Reverse(list)
 	fmt.Println(list.Insert(3, 89))
 	list.Print()
 }

@@ -7,7 +7,7 @@ import (
 
 
 func Reverse(l *libs.List) {
-	prev := new(libs.Node)
+	var prev *libs.Node = nil
 	curr := l.Head
 
 	if curr == nil {
@@ -19,7 +19,6 @@ func Reverse(l *libs.List) {
 		curr.Next = prev
 		prev = curr
 		curr = next
-		curr = curr.Next
 	}
-	prev = l.Head
+	l.Head = prev
 }
