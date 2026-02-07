@@ -27,16 +27,19 @@ func (s *Stack) Push(data interface{}) {
 	s.top = &Node{data: data, next: s.top}
 }
 
-func (s *Stack) Pop() bool {
+func (s *Stack) Pop() (interface{}, bool) {
 	if s.IsEmpty() {
-		return false
+		return nil,false
 	}
 	
 	if s.top.next == nil {
-		return false
+		value := s.top.data
+		s.top = s.top.next
+		return value, true
 	}
+	first := s.top.data
 	s.top = s.top.next
-	return true
+	return first, true
 }
 
 
