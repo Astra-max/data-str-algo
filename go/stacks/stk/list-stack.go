@@ -8,6 +8,9 @@ func Push(data interface{}) {
 }
 
 func Peek() interface{} {
+	if Len() == 0 {
+		return 0
+	}
 	return StackList[len(StackList)-1]
 }
 
@@ -17,6 +20,7 @@ func Pop() (interface{}, bool) {
 	}
 
 	val := StackList[len(StackList)]
+
 	StackList = StackList[:len(StackList)-1]
 	return val, true
 }
