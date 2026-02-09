@@ -1,14 +1,26 @@
 package stk
 
 
-var Stack []int
+var StackList []interface{}
 
-func Push() bool {}
+func Push(data interface{}) {
+	StackList = append(StackList, data)
+}
 
-func Peek() (interface{}, bool) {}
+func Peek() interface{} {
+	return StackList[len(StackList)-1]
+}
 
-func Pop() (interface{}, bool) {}
+func Pop() (interface{}, bool) {
+	if Len() == 0 {
+		return nil, false
+	}
+
+	val := StackList[len(StackList)]
+	StackList = StackList[:len(StackList)-1]
+	return val, true
+}
 
 func Len() int {
-		return len(Stack)
+		return len(StackList)
 }
