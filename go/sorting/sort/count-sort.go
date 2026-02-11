@@ -2,6 +2,11 @@ package sort
 
 
 func CountSort(arr []int) []int {
+
+	if len(arr) == 0 {
+		return arr
+	}
+
 	k := 0
 
 	for i:=0; i<len(arr); i++ {
