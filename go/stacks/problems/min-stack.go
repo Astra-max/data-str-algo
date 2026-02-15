@@ -3,33 +3,35 @@ package problems
 
 import (
 	"stacks/stk"
-) 
+)
 
+type Min struct {
+	stk1 stk.Stack
+	stk2 stk.Stack
+}
 
-func MinStack(data interface{}) *stk.Stack {
-	stk1 := new(stk.Stack)
-	stk2 := new(stk.Stack)
+func MinConst() *Min {
+	return new(Min)
+}
 
-	stk1.Push(1)
-	stk2.Push(1)
-	stk1.Push(10)
-	stk2.Push(3)
+func (m *Min) Push(data interface{}) {
+	m.stk1.Push(data)
+	top,_ := m.stk2.Peek()
 
-	val, cond := stk1.Pop()
-	val2, _:= stk2.Pop()
-
-	if cond && data.(int) >= val.(int) {
-		stk2.Push(val)
-		stk1.Push(data)
+	if m.stk2.IsEmpty() || data.(int) <= top.(int) {
+		m.stk2.Push(data)
 	}
-	if cond && data.(int) <= val.(int) {
-		if val2.(int) > data.(int) {
-			stk2.Push(data)
-			stk2.Push(val2)
-		} else {
-			stk2.Push(val2)
-		        stk2.Push(data)
-	      }
+}
+
+func (m *Min) Pop() {
+	val1,_ := m.stk1.Pop()
+	top,_ := m.stk2.Peek()
+	if val1 == top {
+		_,_ = m.stk2.Pop()
 	}
-	return stk2
+}
+
+func (m *Min) Min() interface{} {
+	top,_ := m.stk2.Peek()
+	return top
 }
