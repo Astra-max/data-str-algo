@@ -2,7 +2,7 @@ package sort
 
 import "sort"
 
-func Bucket(arr []int, k int) []int {
+func BucketSort(arr []int, k int) []int {
 	if len(arr) == 0 || len(arr) == 1 {
 		return arr
 	}
