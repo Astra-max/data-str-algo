@@ -1,5 +1,4 @@
-package libs
-
+package problems
 
 import (
 	"stacks/stk"
