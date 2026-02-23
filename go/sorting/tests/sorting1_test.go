@@ -17,3 +17,15 @@ func TestRadixSort(t *testing.T) {
 		t.Fatalf("Test failed expected %v got %v\n", expected, val)
 	}
 }
+
+func TestBucket(t *testing.T) {
+	arr := []int{2, 11, 3, 6, 9, 1, 7}
+	expected := []int{1, 2, 3, 6, 7, 9, 11}
+
+	results := sort.BucketSort(arr, 3)
+
+	if !reflect.DeepEqual(expected, results) {
+		t.Fatalf("Expected %v got %v", expected, results)
+	}
+
+}
