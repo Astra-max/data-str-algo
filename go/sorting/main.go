@@ -7,6 +7,6 @@ import (
 
 func main() {
 	arr := []int{2, 11, 3, 6, 9, 1, 7}
-	val := sort.RadixSort(arr)
+	val := sort.BucketSort(arr, 3)
 	fmt.Println(val)
 }

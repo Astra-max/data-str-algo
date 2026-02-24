@@ -5,7 +5,7 @@ import (
 	"problems/libs"
 )
 
-func TEST_ReverseInt(t *testing.T) {
+func Test_ReverseInt(t *testing.T) {
 	results := libs.ReverseInt(95)
 	expected := 59
 
