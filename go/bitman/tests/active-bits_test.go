@@ -6,10 +6,17 @@ import (
 )
 
 func Test_ActiveBits(t *testing.T) {
-	expected := 3
-	got := p.ActiveBits(7)
+	err := LoadTests("../tests.json")
+	
+	if err != nil {
+		t.Fatal(err)
+		return
+	}
 
-	if got != expected {
-		t.Fatalf("Expected %v got %v\n", expected, got)
+	for _, tt := range Cases.Cases {
+		results := p.ActiveBits(tt.Value)
+		if results != tt.Expected {
+			t.Fatalf("Exepected %v got %v.", tt.Expected, results)
+		}
 	}
 }
