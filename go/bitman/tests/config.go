@@ -1,18 +1,18 @@
 package tests
 
 import (
-	"os"
 	"encoding/json"
+	"os"
 )
 
 type TestFields struct {
-	Value int `json:"Value"`
+	Value    int `json:"Value"`
 	Expected int `json:"Expected"`
 }
 
 type TestsList struct {
-	Test string
-	Cases  []TestFields
+	Test  string
+	Cases []TestFields
 }
 
 var Cases TestsList
