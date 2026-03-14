@@ -1,0 +1,12 @@
+{
+  "Cases": [
+    {
+      "Value": 7,
+      "Expected": 3
+    },
+    {
+      "Value": 1,
+      "Expected": 1
+    }
+  ]
+}
