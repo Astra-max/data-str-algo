@@ -6,7 +6,7 @@ import (
 	"que/libs"
 )
 
-func SQue_Test(t *testing.T) {
+func SQuePop_Test(t *testing.T) {
 	que := libs.NewSQue()
 	que.Push(9)
 	que.Push(3)
