@@ -14,20 +14,21 @@ type Tree struct {
 	Root *Node
 }
 
-func NewTree(arr []int, low,high int) *Tree {
-	t := &Tree{Root: &Node{}}
-	t.Root = t.CreateTree(arr,low,high)
+func NewTree(arr []int, low,high int) *Node {
+	t := CreateTree(arr,low,high)
 	return t
 }
 
-func (t *Tree) CreateTree(arr []int, low, high int) *Node {
+func CreateTree(arr []int, low, high int) *Node {
 	mid := (low + high)/2
-	if mid >= high {
-		return t.Root
+
+	if low > high {
+		return nil
 	}
-	t.Root.Lchild = t.CreateTree(arr, low, mid)
-	t.Root.Rchild = t.CreateTree(arr, mid+1, high)
-	return t.Root
+	root := &Node{Data: arr[mid]}
+	root.Lchild = CreateTree(arr, low, mid-1)
+	root.Rchild = CreateTree(arr, mid+1, high)
+	return root
 }
 
 func (t *Tree) PreOrder(curr *Node) {
@@ -36,9 +37,18 @@ func (t *Tree) PreOrder(curr *Node) {
 		return
 	}
 
+	fmt.Println(curr.Data)
 	t.PreOrder(curr.Lchild)
 	t.PreOrder(curr.Rchild)
+}
+
+func Inorder(curr *Node) {
+	if curr == nil {
+		return
+	}
+	Inorder(curr.Lchild)
 	fmt.Println(curr.Data)
+	Inorder(curr.Rchild)
 }
 
 func (t *Tree) IsEmpty() bool {
