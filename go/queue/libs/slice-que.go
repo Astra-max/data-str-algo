@@ -14,17 +14,17 @@ func (sq *SQue) Push(data interface{}) {
 
 func (sq *SQue) Peek() (interface{}, bool) {
 	if sq.IsEmpty() {
-		return interface{}, false
+		return nil, false
 	}
 	return sq.Que[0], true
 }
 
 func (sq *SQue) Pop() (interface{}, bool) {
 	if sq.IsEmpty() {
-		return interface{}, false
+		return nil, false
 	}
-	firstVal := sq.SQue[0]
-	sq.SQue = sq.SQue[1:]
+	firstVal := sq.Que[0]
+	sq.Que = sq.Que[1:]
 	return firstVal, true
 }
 
