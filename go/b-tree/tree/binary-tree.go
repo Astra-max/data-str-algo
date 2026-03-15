@@ -53,6 +53,15 @@ func (t *Tree) Inorder(curr *Node) {
 	t.Inorder(curr.Rchild)
 }
 
+func (t *Tree) PostOrder() {
+	if curr == nil {
+		return
+	}
+	t.PostOrder(curr.LChild)
+	t.PostOrder(curr.Rchild)
+	fmt.Println(curr.Data)
+}
+
 func (t *Tree) IsEmpty() bool {
 	return t.Root == nil 
 }
