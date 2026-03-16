@@ -25,6 +25,17 @@ func Divide(num1, num2 int) int {
 	return results
 }
 
+func AddNum(n1, n2 int) int {
+	for n2 != 0 {
+		add := n1 ^ n2
+		carry := (n1 & n2) << 1
+
+		n1 = add
+		n2 = carry
+	}
+	return n1
+}
+
 func Swap(a, b int) (int, int) {
 	a = a ^ b
 	b = b ^ a

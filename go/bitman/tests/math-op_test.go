@@ -15,3 +15,12 @@ func Test_MathOpt(t *testing.T) {
 		})
 	}
 }
+
+func Test_AddNum(t *testing.T) {
+	results := libs.AddNum(5, 9)
+	expected := 14
+
+	if results != expected {
+		t.Fatalf("Expected %v got %v.", expected, results)
+	}
+}
