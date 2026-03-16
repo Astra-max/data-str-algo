@@ -36,6 +36,16 @@ func AddNum(n1, n2 int) int {
 	return n1
 }
 
+func Substract(n1, n2 int) int {
+	for n2 != 0 {
+		sub := n1 ^ n2
+		borrow := (^n1 & n2)<<1
+		n1 = sub
+		n2 =  borrow
+	}
+	return n1
+}
+
 func Swap(a, b int) (int, int) {
 	a = a ^ b
 	b = b ^ a
