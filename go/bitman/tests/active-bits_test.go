@@ -25,7 +25,7 @@ func Test_ActiveBits(t *testing.T) {
 }
 
 func Test_Divide(t *testing.T) {
-	results := libs.Divide(9)
+	results := libs.Divide(9, 2)
 	expected := 18
 
 	if results != expected {

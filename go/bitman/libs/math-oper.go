@@ -13,8 +13,16 @@ func Multiply(num1, num2 int) int {
 	return results
 }
 
-func Divide(num1 int) int {
-	return num1 << 1
+func Divide(num1, num2 int) int {
+	results := 0
+	for num2 > 0 {
+		if num2 & 1 == 0 {
+			results -= num1
+		}
+		num2 <<= 1
+		num1 <<= 1
+	}
+	return results
 }
 
 func Swap(a, b int) (int, int) {
