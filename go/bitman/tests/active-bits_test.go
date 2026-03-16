@@ -2,6 +2,7 @@ package tests
 
 import (
 	p "bitman/problems"
+	"bitman/libs"
 	"testing"
 )
 
@@ -20,5 +21,14 @@ func Test_ActiveBits(t *testing.T) {
 				t.Fatalf("Exepected %v got %v.", tt.Expected, results)
 			}
 		})
+	}
+}
+
+func Test_Divide(t *testing.T) {
+	results := libs.Divide(9)
+	expected := 18
+
+	if results != expected {
+		t.Fatalf("Expected %v got %v", expected, results)
 	}
 }
