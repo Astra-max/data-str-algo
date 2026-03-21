@@ -22,8 +22,12 @@ func (q *Que) Push(data interface{}) {
 		q.Head = newNode
 		return
 	}
-	newNode.Next = q.Head
-	q.Head = newNode
+	curr := q.Head
+
+	for curr.Next != nil {
+		curr = curr.Next
+	}
+	curr.Next = newNode
 }
 
 func (q *Que) Pop() (interface{}, bool) {
