@@ -44,8 +44,7 @@ import (
 			queB.Push(data)
 		}
 	}
-	data, found := queA.Pop()
-	queB.Push(data)
+	data, found := queA.Peek()
 
 	// restore queA to avoid corrupting other operations
 
@@ -60,5 +59,30 @@ import (
  }
 
  func (qs *QueStack) Pop() (interface{}, error) {
-	return nil,nil
+	if qs.Que1.IsEmpty() {
+		return nil, errors.New("Data not found")
+	}
+
+	queA := qs.Que1
+	queB := qs.Que2
+
+	// move data from que a to b
+	for queA.Size() > 0 {
+		data, found := queA.Pop()
+
+		if found {
+			queB.Push(data)
+		}
+	}
+	data, found := queA.Pop()
+	// restore queA to avoid corrupting other operations
+
+	for queB.Size() > 0 {
+		data,_ := queB.Pop()
+		queA.Push(data)
+	}
+	if !found {
+		return nil, errors.New("Data not found")
+	}
+	return data,nil
  }
