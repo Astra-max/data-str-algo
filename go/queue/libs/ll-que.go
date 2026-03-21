@@ -9,6 +9,7 @@ type Node struct {
 
 type Que struct {
 	Head *Node
+	size int
 }
 
 func NewQue() *Que {
@@ -27,6 +28,7 @@ func (q *Que) Push(data interface{}) {
 	for curr.Next != nil {
 		curr = curr.Next
 	}
+	q.size++
 	curr.Next = newNode
 }
 
@@ -34,6 +36,7 @@ func (q *Que) Pop() (interface{}, bool) {
 	if q.IsEmpty() {
 		return nil, false
 	}
+	q.size--
 	firstVal := q.Head.Data
 	q.Head = q.Head.Next
 	return firstVal, true
@@ -62,4 +65,8 @@ func (q *Que) Print() {
 		fmt.Println(curr.Data)
 		curr = curr.Next
 	}
+}
+
+func (q *Que) Size() int {
+	return q.size
 }
