@@ -6,11 +6,26 @@ func TrimSpace(s string) string {
 	runes := []rune(s)
 
 	end  = len(runes)-1
-	for start < end && runes[start] == ' ' {
-		start++
+
+	for i:=0; i<len(runes); i++ {
+		if runes[i] != ' ' {
+			start = i
+			break
+		}
 	}
-	for end  >= start && runes[end] == ' ' {
-				end--
+	
+	for i:=len(runes)-1; i>=0; i-- {
+		if runes[i] != ' ' {
+			end = i
+			break
+		}
 	}
+	
+	// for start < end && runes[start] == ' ' {
+	// 	start++
+	// }
+	// for end  >= start && runes[end] == ' ' {
+	// 			end--
+	// }
 	return string(runes[start:end+1])
 }
