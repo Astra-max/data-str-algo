@@ -1,7 +1,18 @@
 package problems
 
 
-func Atoibase(val, baseTo string, baseFrom int) {}
+func Atoibase(val, baseTo string, baseFrom int) {
+	digit := 0
+
+	for _, char := range val {
+		num := ConvertToNum(char)
+
+		if num >= baseFrom || num < 0 {
+			return
+		}
+		digit = digit * baseFrom + num
+	}
+}
 
 func ConvertToNum(char rune) int {
 	if char >= '0' && char <= '9' {
