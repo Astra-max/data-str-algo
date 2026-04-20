@@ -2,8 +2,8 @@ package tests
 
 
 import (
+	"github.com/Astra-max/data-str-algo/go/que/libs"
 	"testing"
-	"que/libs"
 )
 
 func SQuePop_Test(t *testing.T) {

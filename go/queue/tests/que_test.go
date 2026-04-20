@@ -2,7 +2,7 @@ package tests
 
 
 import (
-	"que/libs"
+	"github.com/Astra-max/data-str-algo/go/que/libs"
 	"testing"
 )
 
