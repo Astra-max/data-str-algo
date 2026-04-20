@@ -21,16 +21,18 @@ func NewTree(arr []int, low,high int) *Tree {
 	return tree
 }
 
-func CreateTree(arr []int, low, high int) *Node {
-	mid := (low + high)/2
+func CreateTree(arr []int, start, size int) *Node {
+	curr := &Node{Data: arr[start]}
+	left := 2 * start + 1
+	right := 2 * start + 2
 
-	if low > high {
+	if start >= size {
 		return nil
 	}
-	root := &Node{Data: arr[mid]}
-	root.Lchild = CreateTree(arr, low, mid-1)
-	root.Rchild = CreateTree(arr, mid+1, high)
-	return root
+	
+	curr.Lchild = CreateTree(arr, left, size)
+	curr.Rchild = CreateTree(arr, right, size)
+	return curr
 }
 
 func (t *Tree) PreOrder(curr *Node) {
@@ -51,15 +53,6 @@ func (t *Tree) Inorder(curr *Node) {
 	t.Inorder(curr.Lchild)
 	fmt.Println(curr.Data)
 	t.Inorder(curr.Rchild)
-}
-
-func (t *Tree) PostOrder() {
-	if curr == nil {
-		return
-	}
-	t.PostOrder(curr.LChild)
-	t.PostOrder(curr.Rchild)
-	fmt.Println(curr.Data)
 }
 
 func (t *Tree) IsEmpty() bool {
