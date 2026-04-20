@@ -9,4 +9,5 @@ func main() {
 
 	t := tree.NewTree(arr,0, len(arr)-1)
 	t.PostOrder(t.Root)
+	t.LeveLOrdering()
 }
