@@ -3,7 +3,7 @@ package libs
 import "fmt"
 
 type Node struct {
-	Data interface{}
+	Data any
 	Next *Node
 }
 
