@@ -2,7 +2,7 @@ package tests
 
 import (
 	"testing"
-	"github.com/Astra-max/data-str-algo/go/que/problems"
+	"github.com/Astra-max/data-str-algo/go/queue/problems"
 )
 
 func Test_QueStackPush(t *testing.T) {

@@ -2,7 +2,7 @@ package problems
 
 import (
 	"errors"
-	"github.com/Astra-max/data-str-algo/go/que/libs"
+	"github.com/Astra-max/data-str-algo/go/queue/libs"
 )
 
 /**
