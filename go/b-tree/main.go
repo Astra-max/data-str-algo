@@ -8,7 +8,5 @@ func main() {
 	arr := []int{1,2,3,4,5,6,7,8}
 
 	t := tree.NewTree(arr,0, len(arr)-1)
-	//t.PreOrder(t.Root)
-	//t.Inorder(t.Root)
 	t.PostOrder(t.Root)
 }
